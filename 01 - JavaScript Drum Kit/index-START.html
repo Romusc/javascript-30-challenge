@@ -9,7 +9,7 @@
 
 
   <div class="keys">
-    <div data-key="65" class="key">
+    <div data-key="65" class="key" id="65">
       <kbd>A</kbd>
       <span class="sound">clap</span>
     </div>
@@ -58,7 +58,12 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
-
+  window.addEventListener('keydown', function(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keycode}"]`);
+    console.log(audio);
+    if (!audio) return;
+      audio.play();
+  });
 </script>
 
 
